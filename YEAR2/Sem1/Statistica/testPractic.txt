@@ -1,0 +1,39 @@
+pkg load statistics
+
+
+%a)
+disp("\n subpunct a)");
+mu = 1;
+sigma = 1;
+
+%probabilitatea ca T1 < 1.5
+prob = normcdf(1.5, mu, sigma);
+
+disp(prob)
+
+
+%2b)
+disp("\n subpunct b)");
+m = 2;
+
+x = normrnd (mu, sigma, [1000, 1]);
+c = sum(x < 2)
+
+n = 1000 - c
+
+indexes = find(x < 2);
+
+s = sum(x(indexes));
+
+
+y = exprnd (2, [n, 1]);
+
+s2 = s + sum(y) + 2*n;
+
+disp(s2/1000)
+
+%c)
+disp("\n subpunct c)");
+n2 = sum(y < 2);
+
+disp((c + n2)/1000)

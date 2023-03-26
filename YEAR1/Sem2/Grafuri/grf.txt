@@ -1,0 +1,1032 @@
+////flux
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <queue>
+#define INF 99999999;
+using namespace std;
+ifstream fin("date.txt");
+
+
+
+queue<int> Q;
+vector<pair<int, int>> G[100000];
+int v, e, Graf[1000][1000], d[100000], viz[100000], p[100000];
+
+
+bool bfs() {
+    int i;
+    for (i = 0; i < v; i++) {
+        p[i] = 0;
+        viz[i] = 0;
+    }
+    viz[0] = 1;
+    p[0] = -1;
+    Q.push(0);
+    while (!Q.empty()) {
+        int x = Q.front();
+        //viz[x] = 1;
+        Q.pop();
+        for (i = 0; i < v; i++) {
+            if (viz[i] == 0 && Graf[x][i] > 0) {
+                viz[i] = 1;
+                p[i] = x;
+                Q.push(i);
+            }
+        }
+    }
+    if (viz[v - 1] == 0) {
+        return false;
+    }
+    return true;
+
+}
+
+int flow() {
+
+    int maxfl = 0;
+    while (bfs()) {
+        int fl = INF;
+        int y = v - 1;
+        while (y != 0) {
+            int x = p[y];
+            if (Graf[x][y] < fl) {
+                fl = Graf[x][y]; //cel mai mic cost
+            }
+            y = p[y];
+        }
+        y = v - 1;
+
+        while (y != 0) {
+            int x = p[y];
+            Graf[x][y] -= fl;//actualizare x->y
+            Graf[y][x] += fl;//actualizare y->x
+            y = p[y];
+        }
+        maxfl += fl; //actualizare flux 
+
+    }
+    return maxfl;
+}
+
+
+
+
+int main()
+{
+    fin >> v >> e;
+    int i, j, k;
+    while (fin >> i >> j >> k) {
+        G[i].push_back(make_pair(j, k));
+        Graf[i][j] = k;
+    }
+    cout << flow();
+}
+
+////////////////////////////////////////////////// arbore min prim ////////////////////////////////
+
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <queue>
+#include <functional>
+#include <climits>
+using namespace std;
+ifstream in("a.in");
+ofstream out("a.out");
+typedef struct muchie {
+    int x, y, w;
+};
+
+muchie m[50001];
+int E, V;
+int viz[5005], p[5005], cost;
+void sortare()
+{
+    int i, j;
+    for (i = 1; i < E; i++)
+    {
+        for (j = i + 1; j <= E; j++)
+            if (m[i].w > m[j].w)
+                swap(m[i], m[j]);
+    }
+}
+void prim()
+{
+    int i, k;
+    for (i = 1; i < V; i++)
+        viz[i] = 0;
+    viz[0] = 1;
+    for (k = 1; k <= V - 1; k++)
+    {
+        i = 0;
+        while (viz[m[i].x] == viz[m[i].y])
+            i++;
+        if (viz[m[i].x])
+            viz[m[i].y] = 1, p[m[i].y] = m[i].x;
+        else
+            viz[m[i].x] = 1, p[m[i].x] = m[i].y;
+        cost += m[i].w;
+    }
+}
+int main()
+{
+    in >> V >> E;
+    for (int i = 1; i <= E; i++)
+        in >> m[i].x >> m[i].y >> m[i].w;
+    sortare();
+    prim();
+    out << cost << endl << V - 1 << endl;
+    for (int i = 1; i < V; i++)
+        out << i << " " << p[i] << endl;
+    return 0;
+}
+
+
+/////////////////////////////////////////////// dijkstra ////////////////////////////////////////////////
+
+
+#include <fstream>
+#include <vector>
+#include <queue>
+#include <bitset>
+#define nod second
+#define cost first
+#define oo (int)2e9+4
+using namespace std;
+ 
+ifstream fin ("dijkstra.in");
+ofstream fout ("dijkstra.out");
+ 
+vector < pair<int, int> > g[50003];
+bitset <50003> viz;
+int d[50003];
+priority_queue < pair<int, int>, vector < pair <int, int> >, greater < pair <int, int> > > q;
+int n, m, st;
+ 
+void citire()
+{
+    int x, y, c;
+    fin>>n>>m;
+    st=1;
+    for (int i=1; i<=m; ++i)
+    {
+        fin>>x>>y>>c;
+        g[x].push_back({c, y});
+        //g[y].push_back({c, x});
+    }
+    fin.close();
+}
+ 
+void dijkstra()
+{
+    for (int i=1; i<=n; ++i) d[i]=oo;
+    d[st]=0;
+    q.push({0, st});
+    while (!q.empty())
+    {
+        int u=q.top().nod;
+        q.pop();
+        if (viz[u]==0)
+        {
+            viz[u]=1;
+            for (auto v:g[u])
+                if (d[v.nod]>d[u]+v.cost)
+                {
+                    d[v.nod]=d[u]+v.cost;
+                    q.push({d[v.nod], v.nod});
+                }
+        }
+    }
+}
+ 
+int main()
+{
+    citire();
+    dijkstra();
+    for (int i=2; i<=n; ++i)
+        if (d[i]==oo) fout<<"0 ";
+        else fout<<d[i]<<' ';
+    return 0;
+}
+
+
+///////////////////////////////////// CODARE PRUFER //////////////////////////////////
+
+
+#include <iostream>
+#include <fstream>
+#include <queue>
+#include <limits>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+//ifstream f("graf.in");
+
+#define NIL INT_MIN
+
+void citire_parinti(int& n, vector<int>& parinti, ifstream fin)
+{
+	/*int parinte = -1;
+	fin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		fin >> parinte;
+		parinti.push_back(parinte);
+	}*/
+}
+
+int este_frunza(int n, vector<int> parinti, int nod)
+{
+	if (parinti[nod] == -1)//nodul e radacina
+		return 0;
+
+	for (int i = 0; i < n; i++)
+		if (parinti[i] == nod)
+			return 0;
+	return 1;
+}
+
+int exists(vector<int> parinti, int nod)
+{
+	for (int i = 0; i < parinti.size(); i++)
+		if (parinti[i] == nod)
+			return 1;
+	return 0;
+}
+
+void determinare_frunze(int n, vector<int> parinti, priority_queue<int, vector<int>, greater<int>>& frunze)
+{
+	vector<int>::iterator it;
+	for (int i = 0; i < n; i++)
+	{
+		if (!exists(parinti, i))
+			frunze.push(i);
+	}
+}
+
+void codare_Prufer(int n, vector<int> parinti, priority_queue<int, vector<int>, greater<int>> frunze, vector<int>& rezultat, int& k)
+{
+	int frunza_min = 0, predecesor = -1;
+	k = 0;
+	while (frunze.size() != 0)
+	{
+		frunza_min = frunze.top();
+		//rezultat[k] = parinti[frunza_min];
+		rezultat.push_back(parinti[frunza_min]);
+		frunze.pop();
+		k++;
+
+		predecesor = parinti[frunza_min];
+		parinti[frunza_min] = NIL;
+
+		if (este_frunza(n, parinti, predecesor))
+			frunze.push(predecesor);
+	}
+}
+
+int main(int argc, char* argv[])
+{
+	std::ifstream fin(argv[1]);
+	std::ofstream fout(argv[2]);
+
+	int n;
+	vector<int> parinti;
+	priority_queue<int, vector<int>, greater<int>> frunze;
+
+	//citirea din fisier
+	int parinte = -1;
+	fin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		fin >> parinte;
+		parinti.push_back(parinte);
+	}
+
+	//citire_parinti(n, parinti, fin);
+	determinare_frunze(n, parinti, frunze);
+
+	int k = 0;
+	vector<int> rezultat;
+
+	codare_Prufer(n, parinti, frunze, rezultat, k);
+
+	fout << k << endl;
+	for (int i = 0; i < k; i++)
+		fout << rezultat[i] << " ";
+
+	fin.close();
+	fout.close();
+	return 0;
+}
+
+/////////////////////////////////////////////// decodare huffman ////////////////////////////////////////////////
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+typedef pair<int, string> pereche;
+typedef pair<string, int> pereche2;
+
+typedef struct Nod
+{
+	int frecv;
+	char litera[50] = "";
+	char codare[50] = "";
+	Nod* st, * dr;
+};
+
+Nod* newNode(char l[50], int freq)
+{
+	Nod* temp = (Nod*)malloc(sizeof(Nod));
+
+	temp->st = temp->dr = NULL;
+	strcpy(temp->litera, l);//temp->litera = l;
+	temp->frecv = freq;
+
+	return temp;
+}
+
+struct compara
+{
+	bool operator()(Nod* x, Nod* y)
+	{
+		if (x->frecv != y->frecv)
+			return x->frecv > y->frecv;
+		else return bool(strcmp(x->litera, y->litera) == 1);
+		//else return x->litera > y->litera;
+	}
+};
+
+struct compara2
+{
+	bool operator()(Nod* x, Nod* y)
+	{
+		//return x->litera > y->litera;
+		return bool(strcmp(x->litera, y->litera) == 1);
+	}
+};
+
+Nod* Huffman(int n, priority_queue<Nod*, vector<Nod*>, compara> coada)
+{
+	Nod* stanga, * dreapta;
+	Nod* z; char str[50] = "";
+	for (int i = 1; i < n; i++)
+	{
+		z = newNode(str, 0);
+		z->st = stanga = coada.top();
+		coada.pop();
+
+		z->dr = dreapta = coada.top();
+		coada.pop();
+
+		if (strcmp(stanga->litera, dreapta->litera) == -1)
+			strcpy(z->litera, stanga->litera);
+		else
+			strcpy(z->litera, dreapta->litera);
+		z->frecv = stanga->frecv + dreapta->frecv;
+		//cout << z->litera<<endl;
+		coada.push(z);
+	}
+	/*while (!coada.empty())
+	{
+		z = coada.top();
+		cout << z->frecv << " " << z->litera << endl;
+		coada.pop();
+	}*/
+	//cout << coada.top()->litera;
+	return coada.top();
+}
+
+int isLeaf(Nod* root)
+{
+	return !(root->st) && !(root->dr);
+}
+
+void printArr(int arr[], int n)
+{
+	int i;
+	for (i = 0; i < n; ++i)
+	{
+		cout << arr[i];
+	}
+
+	cout << "\n";
+}
+
+void printCodes(Nod* root, int arr[], int top, vector<Nod*>& dictionar)
+{
+	// Assign 0 to left edge and recur
+	if (root->st) {
+
+		arr[top] = 0;
+		printCodes(root->st, arr, top + 1, dictionar);
+	}
+
+	// Assign 1 to right edge and recur
+	if (root->dr) {
+
+		arr[top] = 1;
+		printCodes(root->dr, arr, top + 1, dictionar);
+	}
+
+	// If this is a leaf node, then
+	// it contains one of the input
+	// characters, print the character
+	// and its code from arr[]
+	if (isLeaf(root)) {
+
+		//cout << root->litera << ": ";
+		for (int i = 0; i < top; ++i)
+			if (arr[i] == 0)
+				root->codare[i] = '0';
+			else root->codare[i] = '1';
+
+		root->codare[top] = '\0';
+
+		dictionar.push_back(root);
+
+		//cout << root->codare << " ";
+
+		//printArr(arr, top);
+	}
+}
+
+void decodare_huffmann(Nod* root, int& index, string str)
+{
+	if (root == nullptr) {
+		return;
+	}
+
+	// found a leaf node
+	if (isLeaf(root))
+	{
+		cout << root->litera;
+		return;
+	}
+
+	index++;
+
+	if (str[index] == '0') {
+		decodare_huffmann(root->st, index, str);
+	}
+	else {
+		decodare_huffmann(root->dr, index, str);
+	}
+}
+
+void afisare_frecvente(int n, priority_queue<Nod*, vector<Nod*>, compara2> coada2)
+{
+	while (!coada2.empty())
+	{
+		Nod* n;
+		n = coada2.top();
+		cout << n->litera << " " << n->frecv << endl;
+		coada2.pop();
+	}
+}
+
+int main(int argc, char* argv[])
+{
+	std::ifstream fin(argv[1]);
+	std::ofstream fout(argv[2]);
+
+	int n = 0, fr = 0;
+	char aux[50] = "";
+	string mesajcodat, buffer;
+	priority_queue<Nod*, vector<Nod*>, compara> coada;
+	priority_queue<Nod*, vector<Nod*>, compara2> coada2;
+	vector<Nod*> dictionar;
+
+	fin >> n;
+	cout << n << endl;
+
+	for (int i = 1; i <= n; i++)
+	{
+		fin >> aux[0] >> fr;
+		aux[1] = '\0';
+		if (aux[0] == '_')
+			aux[0] = ' ';
+		coada.push(newNode(aux, fr));
+		coada2.push(newNode(aux, fr));
+	}
+
+	getline(fin, buffer);
+	getline(fin, mesajcodat);
+
+	//cout << mesajcodat << endl;
+
+	afisare_frecvente(n, coada2);
+
+	Nod* radacina = Huffman(n, coada);
+
+	int arr[100], top = 0;
+	printCodes(radacina, arr, top, dictionar);
+
+	/*cout << "Dictionar: " << endl;
+	for (int j = 0; j < dictionar.size(); j++)
+		cout << dictionar[j]->litera << " " << dictionar[j]->frecv<<endl;*/
+
+	if (isLeaf(radacina))
+	{
+		// Special case: For input like a, aa, aaa, etc.
+		while (radacina->frecv--) {
+			cout << radacina->litera;
+		}
+	}
+	else {
+		// Traverse the Huffman Tree again and this time,
+		// decode the encoded string
+		int index = -1;
+		while (index < (int)(mesajcodat.size() - 1)) {
+			decodare_huffmann(radacina, index, mesajcodat);
+		}
+	}
+
+	fin.close();
+	fout.close();
+	return 0;
+}
+
+
+
+////////////////////////////////////////////// decodare prufer /////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <fstream>
+#include <queue>
+#include <limits>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+//ifstream f("graf.in");
+
+#define NIL INT_MIN
+
+void citire_codare(int& n, vector<int>& codare)
+{
+	/*int nod = -1;
+	fin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		fin >> nod;
+		codare.push_back(nod);
+	}*/
+}
+
+int exists(vector<int> parinti, int nod)
+{
+	for (int i = 0; i < parinti.size(); i++)
+		if (parinti[i] == nod)
+			return 1;
+	return 0;
+}
+
+void determinare_notfound(int n, vector<int> codare, priority_queue<int, vector<int>, greater<int>>& notfound)
+{
+	for (int i = 0; i < n; i++)
+	{
+		if (!exists(codare, i))
+			notfound.push(i);
+	}
+}
+
+void decodare_Prufer(int n, vector<int> codare, priority_queue<int, vector<int>, greater<int>> notfound, int rezultat[], int& k)
+{
+	int nodmin = 0, parinte = -1, primul=0;
+	k = 0;
+	for(int i=1; i<=n; i++)
+	{
+		primul = codare.front();
+		nodmin = notfound.top();
+		parinte = primul;
+		rezultat[nodmin] = parinte;
+		k++;
+		codare.erase(codare.begin() + 0);
+		codare.push_back(nodmin);
+		notfound.pop();
+
+		if (!exists(codare, primul))
+			notfound.push(primul);
+	}
+}
+
+int main(int argc, char* argv[])
+{
+	std::ifstream fin(argv[1]);
+	std::ofstream fout(argv[2]);
+
+	int n; //nr valori
+	vector<int> codare;
+	priority_queue<int, vector<int>, greater<int>> notfound;
+
+	int nod = -1;
+	fin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		fin >> nod;
+		codare.push_back(nod);
+	}
+
+	//citire_codare(n, codare);
+	determinare_notfound(n+1, codare, notfound);
+	
+	int k = 0;
+	int rezultat[100001]={-1};
+
+	//initializare
+	for (int i = 0; i <= n; i++)
+		rezultat[i] = -1;
+
+	decodare_Prufer(n, codare, notfound, rezultat, k);
+
+	fout << k+1 << endl;
+	for (int i = 0; i <= k; i++)
+		fout << rezultat[i] << " ";
+
+	fin.close();
+	fout.close();
+	return 0;
+}
+
+//////////////////////////////////////////////////// codare huffman //////////////////////////////////////////////
+
+
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+typedef pair<int, string> pereche;
+typedef pair<string, int> pereche2;
+
+typedef struct Nod
+{
+	int frecv;
+	char litera[50]="";
+	char codare[50] = "";
+	Nod* st, * dr;
+};
+
+Nod* newNode(char l[50], int freq)
+{
+	Nod* temp = (Nod*)malloc(sizeof(Nod));
+
+	temp->st = temp->dr = NULL;
+	strcpy(temp->litera, l);//temp->litera = l;
+	temp->frecv = freq;
+
+	return temp;
+}
+
+struct compara
+{
+	bool operator()(Nod* x, Nod* y)
+	{
+		if (x->frecv != y->frecv)
+			return x->frecv > y->frecv;
+		else return bool(strcmp(x->litera, y->litera) == 1);
+		//else return x->litera > y->litera;
+	}
+};
+
+struct compara2
+{
+	bool operator()(Nod* x, Nod* y)
+	{
+		//return x->litera > y->litera;
+		return bool(strcmp(x->litera, y->litera) == 1);
+	}
+};
+
+Nod* Huffman(int n, priority_queue<Nod*, vector<Nod*>, compara> coada)
+{
+	Nod* stanga, * dreapta;
+	Nod* z; char str[50]="";
+	for (int i = 1; i < n; i++)
+	{
+		z = newNode(str, 0);
+		z->st = stanga = coada.top();
+		coada.pop();
+
+		z->dr = dreapta = coada.top();
+		coada.pop();
+
+		if (strcmp(stanga->litera, dreapta->litera) == -1)
+			strcpy(z->litera, stanga->litera);
+		else
+			strcpy(z->litera, dreapta->litera);
+		z->frecv = stanga->frecv + dreapta->frecv;
+		//cout << z->litera<<endl;
+		coada.push(z);
+	}
+	/*while (!coada.empty())
+	{
+		z = coada.top();
+		cout << z->frecv << " " << z->litera << endl;
+		coada.pop();
+	}*/
+	//cout << coada.top()->litera;
+	return coada.top();
+}
+
+int isLeaf(Nod* root)
+{
+	return !(root->st) && !(root->dr);
+}
+
+void printArr(int arr[], int n)
+{
+	int i;
+	for (i = 0; i < n; ++i)
+	{
+		cout << arr[i];
+	}
+
+	cout << "\n";
+}
+
+void printCodes(Nod* root, int arr[], int top, vector<Nod*>& dictionar)
+{
+	// Assign 0 to left edge and recur
+	if (root->st) {
+
+		arr[top] = 0;
+		printCodes(root->st, arr, top + 1, dictionar);
+	}
+
+	// Assign 1 to right edge and recur
+	if (root->dr) {
+
+		arr[top] = 1;
+		printCodes(root->dr, arr, top + 1, dictionar);
+	}
+
+	// If this is a leaf node, then
+	// it contains one of the input
+	// characters, print the character
+	// and its code from arr[]
+	if (isLeaf(root)) {
+
+		//cout << root->litera << ": ";
+		for (int i = 0; i < top; ++i)
+			if (arr[i] == 0)
+				root->codare[i] = '0';
+			else root->codare[i] = '1';
+
+		root->codare[top] = '\0';
+
+		dictionar.push_back(root);
+
+		//cout << root->codare << " ";
+
+		//printArr(arr, top);
+	}
+}
+
+void afisare_frecvente(int n, priority_queue<Nod*, vector<Nod*>, compara2> coada2)
+{
+	while (!coada2.empty())
+	{
+		Nod* n;
+		n = coada2.top();
+		cout << n->litera << " " << n->frecv << endl;
+		coada2.pop();
+	}
+}
+
+int main(int argc, char* argv[])
+{
+	std::ifstream fin(argv[1]);
+	std::ofstream fout(argv[2]);
+
+	int n = 0;
+	char aux[2]="";
+	string mesaj, copiemesaj;
+	priority_queue<Nod*, vector<Nod*>, compara> coada;
+	priority_queue<Nod*, vector<Nod*>, compara2> coada2;
+	vector<Nod*> dictionar;
+
+	getline(fin, mesaj);
+	copiemesaj = mesaj;
+
+	for (int i = 0; i < mesaj.size() - 1; i++)
+		for (int j = i + 1; j < mesaj.size(); j++)
+			if (mesaj[i] > mesaj[j])
+				swap(mesaj[i], mesaj[j]);
+
+	int i = 0;
+	while (i < mesaj.size())
+	{
+		aux[0] = mesaj[i]; n++;
+		int fr = 0;
+		while (aux[0] == mesaj[i] && i < mesaj.size())
+		{
+			fr++;
+			i++;
+		}
+		aux[1] = '\0';
+		coada.push(newNode(aux, fr));
+		coada2.push(newNode(aux, fr));
+	}
+
+	cout << n << endl;
+	afisare_frecvente(n, coada2);
+
+	Nod* radacina = Huffman(n, coada);
+
+	int arr[100], top = 0;
+	printCodes(radacina, arr, top, dictionar);
+	
+	for (int i = 0; i < copiemesaj.size(); i++)
+		for (int j = 0; j < dictionar.size(); j++)
+			if (copiemesaj[i] == dictionar[j]->litera[0])
+				cout << dictionar[j]->codare;
+
+	/*cout << "Dictionar: " << endl;
+	for (int j = 0; j < dictionar.size(); j++)
+		cout << dictionar[j]->litera << " " << dictionar[j]->frecv<<endl;*/
+
+	fin.close();
+	fout.close();
+	return 0;
+}
+
+
+
+///////////////////////////////////////////////////////// kruskal ///////////////////////////////////////////////////
+
+
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+typedef struct Muchie
+{
+	int u, v, w; //inceput si sfarsit - capete , w - pondere
+};
+
+struct compara
+{
+	bool operator()(Muchie m1, Muchie m2)
+	{
+		return m1.w > m2.w;
+	}
+};
+
+int radacina(const int& nod, const vector<int>& parent) {
+	if (parent[nod] == -1)
+		return nod;
+	else
+		return radacina(parent[nod], parent);
+}
+
+vector<Muchie> Kruskal(int n, int& cost, priority_queue<Muchie, vector<Muchie>, compara> muchii)
+{
+	vector<int> parent(n, -1);
+	vector<Muchie> new_edges;
+
+	while (!muchii.empty())
+	{
+		Muchie m = muchii.top();
+		muchii.pop();
+		int radacina_u = radacina(m.u, parent);
+		int radacina_v = radacina(m.v, parent);
+		if (radacina_u != radacina_v) //nu formeaza ciclu daca am adauga latura (u,v)
+		{
+			new_edges.push_back(Muchie{ m.u, m.v, m.w });
+			cost += m.w;
+			parent[radacina_u] = radacina_v;
+		}
+	}
+
+	sort(new_edges.begin(), new_edges.end(), [](const Muchie& x, const Muchie& y) {
+		if (x.u == y.u)
+			return x.v < y.v;
+		return x.u < y.u;
+		});
+
+	return new_edges;
+}
+
+void afisare(int cost, vector<Muchie> muchii, ofstream& fout)
+{
+	fout << cost << endl << muchii.size() << endl;
+	for (const Muchie& m : muchii)
+	{
+		fout << m.u << " " << m.v << endl;
+	}
+}
+
+int main(int argc, char* argv[])
+{
+	std::ifstream fin(argv[1]);
+	std::ofstream fout(argv[2]);
+
+	priority_queue<Muchie, vector<Muchie>, compara> muchii_ordonate;
+	int nrnoduri, nrmuchii;
+	int u, v, w;
+	fin >> nrnoduri >> nrmuchii;
+
+	for (int i = 1; i <= nrmuchii; i++)
+	{
+		fin >> u >> v >> w;  //sursa ; destinatia arcului ; ponderea
+		muchii_ordonate.push(Muchie{ u, v, w });
+	}
+
+	vector<Muchie> muchii_arbore;
+	int cost = 0;
+	muchii_arbore = Kruskal(nrnoduri, cost, muchii_ordonate);
+
+	afisare(cost, muchii_arbore, fout);
+
+	fin.close();
+	fout.close();
+	return 0;
+}
+
+////////////////////////////////////// edmond karp //////////////////////////////////////////
+
+#include <fstream>
+#include <vector>
+#include <queue>
+using namespace std;
+ifstream fin("maxflow.in");
+ofstream fout("maxflow.out");
+ 
+struct arc{ int j,c; };
+int n,m,P[1001],T[1001],C[1001][1001],F[1001][1001],fluxmax;
+vector<int> G[1001];
+ 
+int BF()
+{
+    queue<int> Q;
+    for(int i=1;i<=n;i++) P[i]=0;
+    P[1]=1;
+    Q.push(1);
+    while(!Q.empty())
+    {
+        int i=Q.front();
+        Q.pop();
+        if(i!=n)
+        {
+            for(auto j:G[i])
+                if(!P[j] && C[i][j]!=F[i][j])
+                {
+                    P[j]=1;
+                    Q.push(j);
+                    T[j]=i;
+                }
+        }
+        else return 1;
+    }
+    return 0;
+}
+ 
+int main()
+{
+    fin>>n>>m;
+    for(int i=1;i<=m;i++)
+    {
+        int x,y,c;
+        fin>>x>>y>>c;
+        G[x].push_back(y);
+        G[y].push_back(x);
+        C[x][y]=c;
+    }
+    while(BF())
+        for(auto i:G[n])
+            if(C[i][n]!=F[i][n] && P[i])
+            {
+                T[n]=i;
+                int fmin=110000;
+                for(int i=n;i!=1;i=T[i])
+                    fmin=min(fmin,C[T[i]][i]-F[T[i]][i]);
+                if(fmin>0)
+                    for(int i=n;i!=1;i=T[i])
+                    {
+                        F[T[i]][i]+=fmin;
+                        F[i][T[i]]-=fmin;
+                    }
+                fluxmax+=fmin;
+            }
+    fout<<fluxmax;
+    return 0;
+}

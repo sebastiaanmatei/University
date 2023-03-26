@@ -1,0 +1,21 @@
+[2022-04-29 15:57:06] [info] Start Program:
+Path:"C:\oop labs\lab7 oop\x64\Debug\lab7 oop.exe"
+Arguments:
+Working directory: "C:\oop labs\lab7 oop\lab7 oop\"
+Modules: Selected: C:\oop labs\lab7 oop\x64\Debug\lab7 oop.exe Excluded: 
+Sources: Selected: C:\oop labs\lab7 oop\lab7 oop Excluded: console DynVectorTemplate wishlist 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\Sebastian\AppData\Local\Temp\x54kbr0n.mt4 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2022-04-29 15:57:06] [info] Module: C:\oop labs\lab7 oop\x64\Debug\lab7 oop.exe is selected because it matches selected pattern: C:\oop labs\lab7 oop\x64\Debug\lab7 oop.exe
+[2022-04-29 15:57:09] [info] ----------------------------------------------------
+[2022-04-29 15:57:09] [info] Coverage binary generated in file: C:\Users\Sebastian\AppData\Local\Temp\x54kbr0n.mt4
+[2022-04-29 15:57:09] [info] ----------------------------------------------------

@@ -1,0 +1,32 @@
+.container {
+    border: 1px solid black;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px;
+    width: 400px;
+}
+
+.item {
+    background-color: dodgerblue;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.item img {
+    max-width: 75%;
+    height: auto;
+    margin: 20px;
+}
+
+.item p {
+    margin: 10px 0 0;
+    font-weight: bold;
+}

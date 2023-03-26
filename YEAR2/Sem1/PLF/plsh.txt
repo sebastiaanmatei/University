@@ -1,0 +1,98 @@
+elim poz n
+
+elimina([],_,[]):-!.
+elimina([_|T],1,R):-elimina(T,0,R).
+elimina([H|T],N,[H|R]):-M is (N-1),elimina(T,M,R).
+
+
+sterge ap atom
+
+sterge([],_,[]):-!.
+sterge([H|T],X,[H|R]):-not(X is H),!,sterge(T,X,R).
+sterge([_|T],X,R):-sterge(T,X,R).
+
+
+aparitii
+
+nrAparitii([],_,0):-!.
+nrAparitii([H|T],X,N):-X is H,!,nrAparitii(T,X,NR),N is NR+1.
+nrAparitii([_|T],X,N):-nrAparitii(T,X,N).
+
+maxim
+
+maxim([],_):-!.
+maxim([X,Y],X):-X>=Y, !.
+maxim([X,Y],Y):-X<Y, !.
+maxim([H|X],Y):-maxim(X,Y), H=<Y, !.
+maxim([H|X],H):-maxim(X,Y), H>Y, !.
+
+
+cmmdc lista
+
+cmmdc(X, 0, X).
+cmmdc(X, Y, D) :- Z is X mod Y, cmmdc(Y, Z, D), !.
+
+cmmdcLista([H],H):-!.
+cmmdcLista([H1|[H2|T]],C):-cmmdc(H1,H2,R),
+    cmmdcLista([R|T],C).
+
+
+concaten
+
+concatenare([],L,L).
+concatenare([H|L1],L2,[H|L3]):-
+    concatenare(L1,L2,L3).
+
+
+prim
+
+divizibil(_,0):-
+    !,
+    fail.
+divizibil(X,Y):-
+    X mod Y =:=0,
+    !.
+divizibil(X,Y):-
+    Y1 is Y+1,
+    X>Y1,
+    divizibil(X,Y1).
+
+
+prim(2) :-
+    !.
+prim(X):-
+    X<2,
+    !,
+    false.
+prim(X):-
+    not(divizibil(X,2)).
+
+
+interclasare
+
+member1(E,[E|_]):-!.
+member1(E,[_|L]) :- member1(E,L).
+
+elim_db([],[]).
+elim_db([H|T],LREZ):- member1(H,T),!,elim_db(T,LREZ).
+elim_db([H|T],LREZ):- not(member1(H,T)),!,elim_db(T,LREZ2),LREZ=[H|LREZ2].
+
+intercl([],[],[]):-!.
+intercl(L1,[],L3REZ):- !, elim_db(L1,L3REZ).
+intercl([],L2,L3REZ):- !, elim_db(L2,L3REZ).
+intercl(L1,L2,L3):-!, elim_db(L1,L11),elim_db(L2,L22),interclasare_fara_dubluri(L11,L22,L3).
+
+interclasare_fara_dubluri(L3REZ,[],L3REZ):-!.
+
+interclasare_fara_dubluri([],L3REZ,L3REZ):-!.
+
+interclasare_fara_dubluri([H1|T1],[H2|T2],L3REZ):- H1<H2,!,
+                               interclasare_fara_dubluri(T1,[H2|T2],L3),
+                               L3REZ = [H1|L3].
+
+interclasare_fara_dubluri([H1|T1],[H2|T2],L3REZ):- H1=H2,!,
+                               interclasare_fara_dubluri(T1,T2,L3),
+                               L3REZ = [H1|L3].
+interclasare_fara_dubluri([H1|T1],[H2|T2],L3REZ):- H2<H1,!,
+                               interclasare_fara_dubluri([H1|T1],T2,L3),
+                               L3REZ = [H2|L3].

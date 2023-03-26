@@ -1,0 +1,66 @@
+#include <stdlib.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <stdio.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <string.h>
+#include <math.h>
+
+
+int main(){
+        int s;
+        struct sockaddr_in server, client, celalalt_server;
+        int c, l, c1;
+
+        s=socket(AF_INET, SOCK_STREAM, 0);
+        if(s<0){
+                printf("Eroare la crearea socket");
+                return 1;
+        }
+        memset(&server, 0, sizeof(server));
+        server.sin_port = htons(1237);
+        server.sin_family = AF_INET;
+        server.sin_addr.s_addr=INADDR_ANY;
+
+        if(bind(s, (struct sockaddr *) &server, sizeof(server))<0){
+                printf("Eroare bind\n");
+                return 1;
+        }
+        listen(s, 5);
+        l=sizeof(client);
+        memset(&client, 0, sizeof(client));
+        while(1){
+                uint16_t n, min, port;
+                int i;
+                c=accept(s, (struct sockaddr *) & client, &l);
+                printf("s-a conectat un client.\n");
+                recv(c, &n, sizeof(n), MSG_WAITALL);
+                n=ntohs(n);
+                printf("n=%hu\n", n);
+
+                recv(c, &port, sizeof(port), MSG_WAITALL);
+                port=ntohs(port);
+                printf("port=", port);
+
+
+                close(c);
+
+                c=socket(AF_INET, SOCK_STREAM, 0);
+                memset(&celalalt_server, 0, sizeof(celalalt_server));
+                celalalt_server.sin_port=htons(port);
+                celalalt_server.sin_family=AF_INET;
+                celalalt_server.sin_addr.s_addr=client.sin_addr.s_addr;
+
+                if(connect(c, (struct sockaddr *)&celalalt_server, sizeof(celalalt_server))<0){
+                        printf("eroare la conectare la client\n");
+                }
+                min=n+1;
+                min=htons(min);
+                send(c, &min, sizeof(min), 0);
+                close(c);
+        }
+        close(s);
+}

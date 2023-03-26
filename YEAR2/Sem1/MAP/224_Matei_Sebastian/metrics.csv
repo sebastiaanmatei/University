@@ -1,0 +1,219 @@
+Complexity metrics (2),Tue, 10 Jan 2023 07:43:04 EET
+Method,CogC,ev(G),iv(G),v(G)
+"Graph.Graph.Graph(int[][], int[])",0,1,1,1
+Graph.Graph.bfs(int),7,1,4,5
+Graph.Graph.dfs(int),5,1,3,4
+Graph.Graph.longestComponent(),7,1,3,6
+Graph.Graph.numberOfComponents(int),3,1,3,3
+com.example.myfacebook.HelloApplication.initView(Stage),0,1,1,1
+com.example.myfacebook.HelloApplication.main(String[]),0,1,1,1
+com.example.myfacebook.HelloApplication.start(Stage),0,1,1,1
+com.example.myfacebook.HelloController.onHelloButtonClick(),0,1,1,1
+"com.example.myfacebook.controller.MessageAlert.showErrorMessage(Stage, String)",0,1,1,1
+"com.example.myfacebook.controller.MessageAlert.showMessage(Stage, AlertType, String, String)",0,1,1,1
+com.example.myfacebook.controller.MessagesController.closeMess(ActionEvent),0,1,1,1
+com.example.myfacebook.controller.MessagesController.handleSendMessage(ActionEvent),0,1,1,1
+"com.example.myfacebook.controller.MessagesController.initData(User, User)",0,1,1,1
+com.example.myfacebook.controller.MessagesController.initModel(),0,1,1,1
+com.example.myfacebook.controller.MessagesController.initialize(),0,1,1,1
+com.example.myfacebook.controller.MessagesController.refresh(),0,1,1,1
+com.example.myfacebook.controller.MessagesController.setService(Service),0,1,1,1
+com.example.myfacebook.controller.MessagesController.update(UserEntityChangeEvent),0,1,1,1
+com.example.myfacebook.controller.UserController.onLogInButtonClick(),10,1,7,8
+com.example.myfacebook.controller.UserController.setService(Service),0,1,1,1
+com.example.myfacebook.controller.UserController.showPage(User),1,1,1,2
+com.example.myfacebook.controller.UserController.update(UserEntityChangeEvent),0,1,1,1
+com.example.myfacebook.controller.UserPageController.AcceptHandle(ActionEvent),1,1,2,2
+com.example.myfacebook.controller.UserPageController.handleAdd(ActionEvent),4,1,4,4
+com.example.myfacebook.controller.UserPageController.handleCancelRequest(ActionEvent),4,1,4,4
+com.example.myfacebook.controller.UserPageController.handleDM(ActionEvent),1,1,2,2
+com.example.myfacebook.controller.UserPageController.handleDecline(ActionEvent),1,1,2,2
+com.example.myfacebook.controller.UserPageController.handleDelete(ActionEvent),3,2,2,3
+com.example.myfacebook.controller.UserPageController.handleRefreshFriends(ActionEvent),0,1,1,1
+com.example.myfacebook.controller.UserPageController.handleRefreshRequest(ActionEvent),0,1,1,1
+com.example.myfacebook.controller.UserPageController.initData(User),0,1,1,1
+com.example.myfacebook.controller.UserPageController.initModel(),0,1,1,1
+com.example.myfacebook.controller.UserPageController.initModel2(),0,1,1,1
+com.example.myfacebook.controller.UserPageController.initialize(),0,1,1,1
+com.example.myfacebook.controller.UserPageController.setService(Service),0,1,1,1
+"com.example.myfacebook.controller.UserPageController.showPage(User, User)",1,1,1,2
+com.example.myfacebook.controller.UserPageController.update(UserEntityChangeEvent),0,1,1,1
+com.example.myfacebook.domain.Entity.getId(),0,1,1,1
+com.example.myfacebook.domain.Entity.setId(ID),0,1,1,1
+"com.example.myfacebook.domain.Friendship.Friendship(int, int, String)",0,1,1,1
+"com.example.myfacebook.domain.Friendship.Friendship(int, int, String, String, String)",0,1,1,1
+com.example.myfacebook.domain.Friendship.getFriendsFrom(),0,1,1,1
+com.example.myfacebook.domain.Friendship.getIdFr(),0,1,1,1
+com.example.myfacebook.domain.Friendship.getU1(),0,1,1,1
+com.example.myfacebook.domain.Friendship.getU2(),0,1,1,1
+com.example.myfacebook.domain.Friendship.getUsername1(),0,1,1,1
+com.example.myfacebook.domain.Friendship.getUsername2(),0,1,1,1
+com.example.myfacebook.domain.Friendship.setFriendsFrom(String),0,1,1,1
+com.example.myfacebook.domain.Friendship.setId(int),0,1,1,1
+com.example.myfacebook.domain.Friendship.setU1(int),0,1,1,1
+com.example.myfacebook.domain.Friendship.setU2(int),0,1,1,1
+com.example.myfacebook.domain.Friendship.setUsername1(String),0,1,1,1
+com.example.myfacebook.domain.Friendship.setUsername2(String),0,1,1,1
+"com.example.myfacebook.domain.Message.Message(int, int, String)",0,1,1,1
+com.example.myfacebook.domain.Message.getDataSent(),0,1,1,1
+com.example.myfacebook.domain.Message.getIdFromUser(),0,1,1,1
+com.example.myfacebook.domain.Message.getIdMessage(),0,1,1,1
+com.example.myfacebook.domain.Message.getIdToUser(),0,1,1,1
+com.example.myfacebook.domain.Message.setDataSent(String),0,1,1,1
+com.example.myfacebook.domain.Message.setIdFromUser(int),0,1,1,1
+com.example.myfacebook.domain.Message.setIdMessage(int),0,1,1,1
+com.example.myfacebook.domain.Message.setIdToUser(int),0,1,1,1
+"com.example.myfacebook.domain.Request.Request(int, int)",0,1,1,1
+com.example.myfacebook.domain.Request.getFrom(),0,1,1,1
+com.example.myfacebook.domain.Request.getIdRe(),0,1,1,1
+com.example.myfacebook.domain.Request.getTo(),0,1,1,1
+com.example.myfacebook.domain.Request.setFrom(int),0,1,1,1
+com.example.myfacebook.domain.Request.setId(int),0,1,1,1
+com.example.myfacebook.domain.Request.setTo(int),0,1,1,1
+"com.example.myfacebook.domain.User.User(int, String, int, String, String, String)",0,1,1,1
+com.example.myfacebook.domain.User.addFriend(User),0,1,1,1
+com.example.myfacebook.domain.User.equals(Object),4,3,3,5
+com.example.myfacebook.domain.User.getAge(),0,1,1,1
+com.example.myfacebook.domain.User.getCity(),0,1,1,1
+com.example.myfacebook.domain.User.getFriends(),0,1,1,1
+com.example.myfacebook.domain.User.getPassword(),0,1,1,1
+com.example.myfacebook.domain.User.getSex(),0,1,1,1
+com.example.myfacebook.domain.User.getUserID(),0,1,1,1
+com.example.myfacebook.domain.User.getUsername(),0,1,1,1
+com.example.myfacebook.domain.User.hashCode(),0,1,1,1
+com.example.myfacebook.domain.User.removeFriend(User),0,1,1,1
+com.example.myfacebook.domain.User.setAge(int),0,1,1,1
+com.example.myfacebook.domain.User.setCity(String),0,1,1,1
+com.example.myfacebook.domain.User.setPassword(String),0,1,1,1
+com.example.myfacebook.domain.User.setSex(String),0,1,1,1
+com.example.myfacebook.domain.User.setUsername(String),0,1,1,1
+com.example.myfacebook.domain.User.toString(),0,1,1,1
+com.example.myfacebook.domain.validators.FriendshipValidator.validate(Friendship),1,1,1,2
+com.example.myfacebook.domain.validators.UserValidator.validate(User),4,2,1,5
+com.example.myfacebook.exceptions.RepositoryException.RepositoryException(String),0,1,1,1
+com.example.myfacebook.exceptions.ServiceException.ServiceException(String),0,1,1,1
+com.example.myfacebook.exceptions.ValidationException.ValidationException(),0,1,1,1
+com.example.myfacebook.exceptions.ValidationException.ValidationException(String),0,1,1,1
+"com.example.myfacebook.exceptions.ValidationException.ValidationException(String, Throwable)",0,1,1,1
+"com.example.myfacebook.exceptions.ValidationException.ValidationException(String, Throwable, boolean, boolean)",0,1,1,1
+com.example.myfacebook.exceptions.ValidationException.ValidationException(Throwable),0,1,1,1
+"com.example.myfacebook.repo.db.FriendshipDBRepo.FriendshipDBRepo(String, String, String)",0,1,1,1
+com.example.myfacebook.repo.db.FriendshipDBRepo.delete(Integer),5,2,3,4
+com.example.myfacebook.repo.db.FriendshipDBRepo.findAll(),2,1,3,3
+com.example.myfacebook.repo.db.FriendshipDBRepo.findOne(Integer),3,2,3,3
+com.example.myfacebook.repo.db.FriendshipDBRepo.save(Friendship),1,1,1,2
+com.example.myfacebook.repo.db.FriendshipDBRepo.update(Friendship),1,1,1,2
+"com.example.myfacebook.repo.db.MessageDBRepo.MessageDBRepo(String, String, String)",0,1,1,1
+com.example.myfacebook.repo.db.MessageDBRepo.delete(Integer),5,2,3,4
+com.example.myfacebook.repo.db.MessageDBRepo.findAll(),2,1,3,3
+com.example.myfacebook.repo.db.MessageDBRepo.findOne(Integer),3,2,3,3
+com.example.myfacebook.repo.db.MessageDBRepo.save(Message),1,1,1,2
+com.example.myfacebook.repo.db.MessageDBRepo.update(Message),1,1,1,2
+"com.example.myfacebook.repo.db.RequestDBRepo.RequestDBRepo(String, String, String)",0,1,1,1
+com.example.myfacebook.repo.db.RequestDBRepo.delete(Integer),5,2,3,4
+com.example.myfacebook.repo.db.RequestDBRepo.findAll(),2,1,3,3
+com.example.myfacebook.repo.db.RequestDBRepo.findOne(Integer),3,2,3,3
+com.example.myfacebook.repo.db.RequestDBRepo.save(Request),1,1,1,2
+com.example.myfacebook.repo.db.RequestDBRepo.update(Request),1,1,1,2
+"com.example.myfacebook.repo.db.UserDBRepo.UserDBRepo(String, String, String)",0,1,1,1
+com.example.myfacebook.repo.db.UserDBRepo.delete(Integer),3,2,3,3
+com.example.myfacebook.repo.db.UserDBRepo.findAll(),2,1,3,3
+com.example.myfacebook.repo.db.UserDBRepo.findOne(Integer),3,2,3,3
+com.example.myfacebook.repo.db.UserDBRepo.save(User),1,1,1,2
+com.example.myfacebook.repo.db.UserDBRepo.update(User),1,1,1,2
+"com.example.myfacebook.service.Service.DFSUtil(List<Integer>[], int, boolean[], int)",4,1,3,3
+"com.example.myfacebook.service.Service.Service(Repository<Integer, User>, Repository<Integer, Friendship>, RequestDBRepo, MessageDBRepo, Validator)",3,1,1,3
+"com.example.myfacebook.service.Service.addFriend(int, int)",11,3,7,9
+"com.example.myfacebook.service.Service.addMessage(int, int, String)",4,2,3,4
+com.example.myfacebook.service.Service.addObserver(Observer<UserEntityChangeEvent>),0,1,1,1
+"com.example.myfacebook.service.Service.addRequest(int, int)",4,3,3,4
+"com.example.myfacebook.service.Service.addUser(int, String, int, String, String, String)",4,1,4,4
+"com.example.myfacebook.service.Service.deleteRequest(int, int)",4,3,4,4
+com.example.myfacebook.service.Service.getFriends(int),6,2,4,5
+com.example.myfacebook.service.Service.getListFriendships(),1,1,2,2
+com.example.myfacebook.service.Service.getListFriendshipsForUser(int),5,1,4,4
+com.example.myfacebook.service.Service.getListMessages(),0,1,1,1
+"com.example.myfacebook.service.Service.getListMessagesFromUsers(int, int)",7,1,6,6
+com.example.myfacebook.service.Service.getListRequests(),0,1,1,1
+com.example.myfacebook.service.Service.getListUsers(),0,1,1,1
+com.example.myfacebook.service.Service.getMaxIdMess(),3,1,3,3
+com.example.myfacebook.service.Service.getMessageByID(int),0,1,1,1
+com.example.myfacebook.service.Service.getRequests(int),3,1,3,3
+com.example.myfacebook.service.Service.getUserByID(int),0,1,1,1
+com.example.myfacebook.service.Service.hasFriends(int),3,3,1,3
+com.example.myfacebook.service.Service.howManyComunities(),11,1,7,8
+com.example.myfacebook.service.Service.makeFriendships(),5,1,3,4
+com.example.myfacebook.service.Service.maxComm(),1,1,2,2
+com.example.myfacebook.service.Service.maxID(),3,1,3,3
+com.example.myfacebook.service.Service.notifyObservers(UserEntityChangeEvent),0,1,1,1
+"com.example.myfacebook.service.Service.removeFriendship(int, int)",8,1,7,8
+com.example.myfacebook.service.Service.removeObserver(Observer<UserEntityChangeEvent>),0,1,1,1
+com.example.myfacebook.service.Service.removeUser(User),12,4,6,8
+com.example.myfacebook.service.Service.setMessages(),1,1,2,2
+com.example.myfacebook.service.Service.updateRequests(int),11,1,7,7
+com.example.myfacebook.ui.Console.Console(Service),0,1,1,1
+com.example.myfacebook.ui.Console.menu(),0,1,1,1
+com.example.myfacebook.ui.Console.run(),43,11,20,20
+"com.example.myfacebook.utils.events.UserEntityChangeEvent.UserEntityChangeEvent(ChangeEventType, User)",0,1,1,1
+"com.example.myfacebook.utils.events.UserEntityChangeEvent.UserEntityChangeEvent(ChangeEventType, User, User)",0,1,1,1
+com.example.myfacebook.utils.events.UserEntityChangeEvent.getData(),0,1,1,1
+com.example.myfacebook.utils.events.UserEntityChangeEvent.getOldData(),0,1,1,1
+com.example.myfacebook.utils.events.UserEntityChangeEvent.getType(),0,1,1,1
+run(),0,n/a,n/a,n/a
+
+Class,CBO,DIT,LCOM,NOC,OCavg,OCmax,WMC
+Graph.Graph,2,1,1,0,3.40,6,17
+com.example.guiex1.utils.Constants,0,1,0,0,n/a,n/a,0
+com.example.myfacebook.HelloApplication,8,2,2,0,1.00,1,3
+com.example.myfacebook.HelloController,0,1,1,0,1.00,1,1
+com.example.myfacebook.controller.MessageAlert,2,1,2,0,1.00,1,2
+com.example.myfacebook.controller.MessagesController,6,1,1,0,1.00,1,9
+com.example.myfacebook.controller.UserController,7,1,2,0,2.00,5,8
+com.example.myfacebook.controller.UserPageController,10,1,1,0,1.67,4,25
+com.example.myfacebook.domain.Entity,9,1,1,4,1.00,1,2
+com.example.myfacebook.domain.Friendship,6,2,7,0,1.00,1,14
+com.example.myfacebook.domain.Message,4,2,5,0,1.00,1,9
+com.example.myfacebook.domain.Request,3,2,4,0,1.00,1,7
+com.example.myfacebook.domain.User,9,2,7,0,1.11,3,20
+com.example.myfacebook.domain.validators.FriendshipValidator,3,1,1,0,2.00,2,2
+com.example.myfacebook.domain.validators.UserValidator,4,1,1,0,5.00,5,5
+com.example.myfacebook.exceptions.RepositoryException,2,3,0,0,1.00,1,1
+com.example.myfacebook.exceptions.ServiceException,0,3,0,0,1.00,1,1
+com.example.myfacebook.exceptions.ValidationException,3,3,0,0,1.00,1,5
+com.example.myfacebook.repo.db.FriendshipDBRepo,4,1,1,0,1.50,2,9
+com.example.myfacebook.repo.db.MessageDBRepo,5,1,1,0,1.50,2,9
+com.example.myfacebook.repo.db.RequestDBRepo,5,1,1,0,1.50,2,9
+com.example.myfacebook.repo.db.UserDBRepo,3,1,1,0,1.50,2,9
+com.example.myfacebook.service.Service,21,1,1,0,2.93,7,88
+com.example.myfacebook.ui.Console,3,1,1,0,6.33,17,19
+com.example.myfacebook.utils.events.ChangeEventType,2,n/a,2,n/a,n/a,n/a,0
+com.example.myfacebook.utils.events.UserEntityChangeEvent,7,1,3,0,1.00,1,5
+
+Interface,CBO
+com.example.myfacebook.domain.validators.Validator,4
+com.example.myfacebook.repo.Repository,6
+com.example.myfacebook.utils.events.Event,3
+com.example.myfacebook.utils.observer.Observable,3
+com.example.myfacebook.utils.observer.Observer,6
+
+Package,Ca,Ce,I,v(G)avg,v(G)tot
+com.example.myfacebook,2,16,0.89,1.00,4
+com.example.myfacebook.controller,2,105,0.98,1.69,49
+com.example.myfacebook.domain,378,0,0.00,1.08,54
+com.example.myfacebook.domain.validators,4,12,0.75,3.50,7
+com.example.myfacebook.exceptions,7,0,0.00,1.00,7
+com.example.myfacebook.graphShit,3,0,0.00,3.80,19
+com.example.myfacebook.repo,31,1,0.03,n/a,n/a
+com.example.myfacebook.repo.db,12,106,0.90,2.46,59
+com.example.myfacebook.service,40,235,0.85,3.57,107
+com.example.myfacebook.ui,0,27,1.00,7.33,22
+com.example.myfacebook.utils,0,0,1.00,n/a,n/a
+com.example.myfacebook.utils.events,20,7,0.26,1.00,5
+com.example.myfacebook.utils.observer,12,2,0.14,n/a,n/a
+
+Module,v(G)avg,v(G)tot
+MyFacebook,2.09,333
+
+Project,CF,v(G)avg,v(G)tot
+project,16.56%,2.09,333
+

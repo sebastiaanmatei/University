@@ -1,0 +1,9 @@
+d,Miami,condo,4000
+x,x,x,1
+asdfg,asdfg,asdf,100
+adaf,wsfwa,fesagfe,230
+fghj,fghj,kjhg,900
+a,Ibiza,bb,5000
+b,Malaga,all-inclusive,3000
+adsadas,asdasdasd,asdasdasdsda,10000
+c,Hawaii,pension,10000

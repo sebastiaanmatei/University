@@ -1,0 +1,13 @@
+delete_at([G|H],1,H):-!.
+   delete_at([G|H],N,[G|L]):-
+    N > 1,
+    Nn is N - 1,!,
+    delete_at(H,Nn,L).
+
+test_delete_at:-
+    delete_at([1,2,3,4,5],3,X), write(X),
+    delete_at([1,2,3,4,5],1,A), write(A),
+    delete_at([1,2,3,4,5],5,B), write(B),
+    delete_at([1,2,3,4,5],6,C), write(C).
+
+

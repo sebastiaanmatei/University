@@ -1,0 +1,77 @@
+#include <stdlib.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <stdio.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <string.h>
+
+int main() {
+    int c, s, i, l;
+    struct sockaddr_in server, client;
+    uint16_t n, min, port;
+
+    c = socket(AF_INET, SOCK_STREAM, 0);
+    if (c < 0) {
+        printf("Eroare la crearea socketului client\n");
+        return 1;
+    }
+    memset(&server, 0, sizeof(server));
+    server.sin_port = htons(1237);
+    server.sin_family = AF_INET;
+    server.sin_addr.s_addr = inet_addr("127.0.0.1");
+    if (connect(c, (struct sockaddr *) &server, sizeof(server)) < 0) {
+        printf("Eroare la conectarea la server\n");
+        return 1;
+    }
+
+    printf("numarul:\n n = ");
+    scanf("%hu", &n);
+
+    n = htons(n);
+    send(c, &n, sizeof(n), 0);
+
+
+    printf("portul:\n port = ");
+    scanf("%hu", &port);
+
+    port = htons(port);
+
+    send(c, &port, sizeof(port), 0);
+    port = ntohs(port);
+
+    close(c);
+
+    s = socket(AF_INET, SOCK_STREAM, 0);
+    if (s < 0) {
+       printf("Eroare la crearea socketului client\n");
+       return 1;
+    }
+
+    memset(&server, 0, sizeof(server));
+    server.sin_port = htons(port);
+    server.sin_family = AF_INET;
+    server.sin_addr.s_addr = INADDR_ANY;
+
+    if ( bind(s, (struct sockaddr *) &server, sizeof(server)) < 0) {
+		 printf("Eroare la bind. Port oupat!\n");
+        return 1;
+    }
+
+    listen(s, 5);
+
+    l = sizeof(client);
+    memset(&client, 0, sizeof(client));
+
+    c = accept(s, (struct sockaddr *) &client, &l);
+    recv(c, &min, sizeof(min), MSG_WAITALL);
+
+    min = ntohs(min);
+
+    printf("succesorul este: %hu\n", min);
+
+    close(c);
+}
+

@@ -1,0 +1,2 @@
+memberx(X, [X|_]).
+memberx(X, [_|T]):-memberx(X,T).
