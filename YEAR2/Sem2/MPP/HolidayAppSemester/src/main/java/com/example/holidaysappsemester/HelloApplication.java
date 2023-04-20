@@ -1,7 +1,6 @@
 package com.example.holidaysappsemester;
 
 import com.example.holidaysappsemester.controller.LogInController;
-import com.example.holidaysappsemester.domain.Trip;
 import com.example.holidaysappsemester.repo.ResDBRepo;
 import com.example.holidaysappsemester.repo.TripDBRepo;
 import com.example.holidaysappsemester.repo.UserDBRepo;
