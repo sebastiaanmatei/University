@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Mutari Liste</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        select {
+            width: 200px;
+            height: 150px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<select id="list1" multiple>
+    <option value="1">Element 1</option>
+    <option value="2">Element 2</option>
+    <option value="3">Element 3</option>
+    <option value="4">Element 4</option>
+    <option value="5">Element 5</option>
+</select>
+
+<select id="list2" multiple>
+    <option value="6">Element 6</option>
+    <option value="7">Element 7</option>
+    <option value="8">Element 8</option>
+    <option value="9">Element 9</option>
+    <option value="10">Element 10</option>
+</select>
+
+<script>
+    $(document).ready(function() {
+        // adăugăm evenimentul de dublu-click la fiecare element din prima listă
+        $('#list1 option').dblclick(function() {
+            // mutăm elementul în a doua listă
+            $('#list2').append($(this));
+        });
+
+        // adăugăm evenimentul de dublu-click la fiecare element din a doua listă
+        $('#list2 option').dblclick(function() {
+            // mutăm elementul în prima listă
+            $('#list1').append($(this));
+        });
+    });
+</script>
+</body>
+</html>

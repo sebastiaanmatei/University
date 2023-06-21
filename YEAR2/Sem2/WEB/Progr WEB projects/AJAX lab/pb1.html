@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Train Stations</title>
+</head>
+<body>
+<h1>Select Departure and Arrival Stations</h1>
+<label for="departure">Departure Station:</label>
+<select id="departure" name="departure">
+  <option value="">Select a station</option>
+  <option value="Cluj">Cluj</option>
+  <option value="London">London</option>
+  <option value="Denver">Denver</option>
+</select>
+<br><br>
+<label for="arrival">Arrival Station:</label>
+<select id="arrival" name="arrival">
+  <option value="">Select a station</option>
+</select>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#departure").change(function() {
+      var departure = $(this).val();
+      $.ajax({
+        url: "pb1.php",
+        type: "POST",
+        data: {departure: departure},
+        success: function(response) {
+          $("#arrival").html(response);
+
+        }
+      });
+    });
+  });
+
+</script>
+</body>
+</html>

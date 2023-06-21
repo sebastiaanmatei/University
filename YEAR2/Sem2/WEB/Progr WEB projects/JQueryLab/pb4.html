@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <style>
+    body{
+      display: inline-flex;
+      flex-direction: row;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%,0);
+
+    }
+
+    table{
+      border-collapse:collapse;
+      margin: 15px 15px;
+
+    }
+    td,th{
+      align-items: center;
+      padding: 5px;
+      margin: 5px 5px;
+      border-bottom: 1px solid rgb(163, 163, 163) ;
+    }
+    th:hover{
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<table id="tableColumns">
+  <tr>
+    <th onclick="sortColumns(0)">
+      Nume
+    </th>
+    <td>Ina</td>
+    <td>Adrian</td>
+    <td>Dan</td>
+  </tr>
+  <tr>
+    <th onclick="sortColumns(1)">
+      Varsta
+    </th>
+    <td>3</td>
+    <td>4</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <th onclick="sortColumns(2)">
+      Salariu
+    </th>
+    <td>8000</td>
+    <td>655</td>
+    <td>6550</td>
+</table>
+
+<br>
+<table id="tableRows">
+  <tr>
+    <th onclick="sortRows(0)">Nume</td>
+    <th onclick="sortRows(1)">Varsta</td>
+    <th onclick="sortRows(2)">Salariu</td>
+  </tr>
+  <tr>
+    <td>Ina</td>
+    <td>3</td>
+    <td>8000</td>
+  </tr>
+  <tr>
+    <td>Adrian</td>
+    <td>4</td>
+    <td>655</td>
+  </tr>
+  <tr>
+    <td>Dan</td>
+    <td>2</td>
+    <td>6550</td>
+  </tr>
+
+</table>
+<script>
+  function sortColumns(column_index){
+    let table=$("#tableColumns");
+    let rows=table.find("tr");
+    let columns=[];
+    let columns_length=rows.eq(0).children().length;
+    for (let i=0; i<columns_length-1; i++)
+      columns.push([]);
+
+    for (let i=0; i<rows.length; i++){
+      for (let j=1; j<columns_length; j++){
+        columns[j-1].push(rows.eq(i).children().eq(j).html());
+      }
+    }
+
+    function asc(a,b){
+      if (a[column_index]>b[column_index])
+        return 1;
+      if (a[column_index]<b[column_index])
+        return -1;
+      return 0;
+    }
+    function desc(a,b){
+      if (a[column_index]>b[column_index])
+        return -1;
+      if (a[column_index]<b[column_index])
+        return 1;
+      return 0;
+    }
+
+    let before=columns.toString();
+    if (!isNaN(parseInt(columns[0][column_index]))){
+      for (let i=0; i<columns_length-1; i++)
+        columns[i][column_index]=parseInt(columns[i][column_index]);
+    }
+
+    columns.sort(asc);
+
+    if (before===columns.toString()) columns.sort(desc);
+
+    for (let i=0; i<rows.length; i++){
+      for (let j=0; j<columns_length-1; j++){
+        rows.eq(i).children().eq(j+1).html(columns[j][i]);
+      }
+    }
+  }
+
+  function sortRows(attributeIndex){
+    rows=$("#tableRows").find("tr");
+    let rowsWork=[];
+    for (let i=1; i<rows.length; i++)
+      rowsWork.push([]);
+
+    for (let i=1; i<rows.length; i++)
+      for (let j=0; j<rows.eq(i).children().length; j++)
+        rowsWork[i-1].push(rows.eq(i).children().eq(j).html());
+
+    function asc(a,b){
+      if (a[attributeIndex]>b[attributeIndex])
+        return 1;
+      if (a[attributeIndex]<b[attributeIndex])
+        return -1;
+      return 0;
+    }
+
+    function desc(a,b){
+      if (a[attributeIndex]>b[attributeIndex])
+        return -1;
+      if (a[attributeIndex]<b[attributeIndex])
+        return 1;
+      return 0;
+    }
+
+    if (!isNaN(parseInt(rowsWork[0][attributeIndex]))){
+      for (let i=0; i<rowsWork.length; i++)
+        rowsWork[i][attributeIndex]=parseInt(rowsWork[i][attributeIndex]);
+    }
+
+    let before=rowsWork.toString();
+    rowsWork.sort(asc);
+
+    if (rowsWork.toString()===before) {
+      rowsWork.sort(desc);
+    }
+
+    for (let i=0; i<rows.length-1; i++)
+      for (let j=0; j<rows.eq(i).children().length; j++)
+        rows.eq(i+1).children().eq(j).html(rowsWork[i][j]);
+
+  }
+</script>
+</body>
+</html>

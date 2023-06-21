@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Pb5 slides</title>
+    <style>
+      #list-container ol li {
+
+        display: none;
+      }
+
+      #list-container ol li.active {
+        display: block;
+      }
+
+    </style>
+
+</head>
+<body>
+<div id="list-container" style="text-align: center; display: flex; justify-content: center; align-items: center; position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
+  <ol>
+    <li class="active">
+      <img src="https://i0.wp.com/maxtuncars.com/storage/MANSORY-Takes-Audi-RS6-Avant-730-HP-2-200x200.jpg">
+      <a href="https://www.audi.ro/">Audi</a>
+    </li>
+    <li>
+      <img src="https://mercedesblog.com/wp-content/uploads/2021/11/Mercedes-Benz-S-Class-Plug-in-Hybrid-All-wheel-drive-2-200x200.jpg">
+      <a href="#">Mercedes</a>
+    </li>
+    <li>
+      <img src="https://i0.wp.com/maxtuncars.com/storage/BMW-M5-F90-LCI-Carbon-Body-Kit-CFA-1-200x200.jpg">
+      <a href="#">Bmw</a>
+    </li>
+    <!-- adaugati cate elemente doriti -->
+  </ol>
+  <div id="controls">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var intervalId;
+        var delay = 2000; // afiseaza urmatorul element la fiecare 5 secunde
+        var currentIndex = 0;
+        var $listItems = $('#list-container ol li');
+        var $controls = $('#controls');
+        var $prevButton = $controls.find('#prev');
+        var $nextButton = $controls.find('#next');
+
+        function showItem(index) {
+            $listItems.removeClass('active');
+            $listItems.eq(index).addClass('active');
+        }
+
+        function nextItem() {
+            currentIndex++;
+            if (currentIndex >= $listItems.length) {
+                currentIndex = 0;
+            }
+            showItem(currentIndex);
+        }
+
+        function prevItem() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = $listItems.length - 1;
+            }
+            showItem(currentIndex);
+        }
+
+        function startInterval() {
+            clearInterval(intervalId);
+            intervalId = setInterval(function() {
+                nextItem();
+            }, delay);
+        }
+
+        function stopInterval() {
+            clearInterval(intervalId);
+        }
+
+        // afiseaza primul element si porneste intervalul
+        showItem(0);
+        startInterval();
+
+        // adauga evenimente pe butoane
+        $nextButton.click(function() {
+            stopInterval();
+            nextItem();
+            startInterval();
+        });
+
+        $prevButton.click(function() {
+            stopInterval();
+            prevItem();
+            startInterval();
+        });
+    });
+
+</script>
+
+
+</body>
+</html>
