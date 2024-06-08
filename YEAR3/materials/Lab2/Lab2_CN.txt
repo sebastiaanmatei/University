@@ -1,0 +1,47 @@
+Lab2
+
+-pe la examene poate intreba de "ordin de convergenta". (ex: al unei metode numerice)
+
+Discretizare - iei o prob complicata e care o rez pe foaie pe care o spargi in rez aprox, care la final dau aprox rez cautat
+
+-specif de precizie=rez cat mai apropiat de realitate = primim de la el un input si o idee de alg, iar output-ul sa fie ff apropiat de realitate cu precizia Epsilon
+-modulul dif sa nu fie mai mic decat rez pe care il cere
+
+-pt examen: sa se calc nu stiu ce cu o precizie de 10 la puterea -5=> soutie
+===> |solutie teoretica - solutie| < 10^-5
+
+
+Tipare de probleme:
+I.  -ce e derivata numerica
+    -ce e integrala numerica
+
+II. -ne aducem aminte de metoda clasica, gauss si alte metode de sisteme de ec. liniare
+
+
+-ce e cu rosu vrea sa stim
+
+
+-vrea sa stim norma euclidiana (cu radical)
+
+TEMAAAA 1,2,3,4 indicatii:
+
+1.
+-vrea sa cautam proceduri scrise de mana ca sa putem sa calculam eps, realmin, realmax
+-proceduri de mana=exista pe net alg cu cateva linii de cod cu cateva for-uri care ne lasa sa det eps, realmin, realmax
+2,3-OBLIGATORII
+-obs!!!->din cls 9. sin si cos sunt 2pi periodice
+-aprox taylor si pade
+trebe sa aratam ce arata sin(10pi), si cat e defapt
+
+4.
+->reprezentarea binara, seminificanta si tot ce cere acolo.
+
+
+
+In pdf sunt probleme suplimentare. Matlab=octave, maple=sage. 
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+la partea practica sa se rez cu un alg performant. trebe sa ne prindem daca matricea este rara. 
+daca este rara  =>lab4  
+daca este densa =>lab5
+
+Tema 1,2,3,4 trebuie sa dam exemple
+
+
+
+
+

@@ -1,0 +1,21 @@
+prob 7
+-Sage
+-punem intr-un sg grafic polinoamele taylor pt fuctia f(x). punem culori diferite => trbuie sa gasim comanda care face acest ucru.(exponentiala si Taylor)
+-trebuiesa raspundem la intrebarea de la a)
+
+-la b) este aceeasi ca la pctul a) dar in loc de exp avem log
+
+prb 8 => obligatorie
+-fara pade()
+-implementati pe baza alg de la 0 descris -> Aroximare Pade rationala
+-facem metodele de la 0(nu implicite)
+
+-la a) o sa vrea rezolvarea la e f(x)=cos(x). pt val m si k sunt val 0-3
+-la celelalte puncte o sa apara Pade(2,2) etc
+-pt 8b trebuie sa fie rez 7a
+
+prob 5
+-se face intr-o varianta similara cu una dintre problemele de la sectiunea 4 din acelasi document
+-in Sage daca avem nev sa facem calcule de mana, facem un rand nou si punem acolo reducerile (aproximarile)
+- trebe sa aratam pe calculator, nu pe foaie.
+-avem for sau while pana cat diferenta in modul nu e mai mica.

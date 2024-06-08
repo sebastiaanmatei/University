@@ -1,0 +1,15 @@
+Problemele 1,1,2,3
+-problema obligatorie e cea cu conditionarea radacinilor unui polinom
+
+Problemele: 1,1,2,3
+
+Conditionarea radacinilor unui polinom.
+
+ex 1 observational -> calcule -> explozie inmultire de matrici (rezolvare de sistem)
+
+
+
+
+
+
+

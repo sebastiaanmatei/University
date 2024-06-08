@@ -1,0 +1,22 @@
+notam fiecare nod incepand de la 0
+pt acuratete mai mare=> trebuie sa ii dam mai multe date
+
+Tema: Prima sectiune: 1,2,3,4,5
+1. Implementati o rutina Lagrange Polin. nu vrem sa fie eficienta, vrem cel ami simplu mod
+2. Reprezentam grafic
+input: vector de numere si cu ajutorul lui, vrea sa desenam lmk (produsele din lab6.pgn)
+3.Reprezentam pe acelasi grafic f si sa calculam polin lui Lagrange (polifid)
+4.pt fuctia aleasa, alegem un punct si verif daca polin lui lagrange, da exact cat da functia in punctul ala
+5. nimic de spus
+
+
+
+
+
+	A doua sectiune 1234
+Avem nevoie de prob5 ca sa rez problemele de la seciunea 2
+1. nodurilepe stanga si val functiei pe dreata
+2.acelasi cod pt e^x^2-1
+3.seamana cu ce am facut la primul lab. Recomandare: putem lua ca noduri 100, 121, 144 pt ca 115 este intre ele, 81, 100, 121, 144 pt precizie mai mare
+4.folosirea codului de mai sus, trebuie doar desenul (lagrange sa nu se inteleaga deloc cu funtia)
+

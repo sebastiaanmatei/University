@@ -1,0 +1,41 @@
+Polin lui Lagrange in forma Newton
+
+Noduri, valori pe noduri
+nodurile trebuie sa fie ord crescatoare
+apoi pui val corespunzatoare
+
+pui sageti intre val
+
+
+la ex 4 , o sa obs ca polin lui Lagrange nu e o unealta eficienta, trebuie imbunatatita
+
+Daca la ex primin interpolare si se da noduri si valori in tabel=> interpolare Lagrange
+Daca la ex primin interpolare si se da noduri si valori in tabel si deriv=>interpolare Hermite
+
+Probleme:
+Sectiunea 1
+
+Sectiunea 2
+
+Sectiunea 3
+
+Sectiunea de la prob practice: 1,2,3
+
+1. youtube sau unde vrem
+2. avem pseudocodul sau implementarea de la 1 si vrea sa stocam toti coef lui herminte intr-un vector=>fctia polifid si polival, apoi un plot
+3. x, f(x), y,f(y) (eventual trebuie si pt f'(x) si f'(y)) si desenam un grafic
+
+
+Rezolvam la 3 si urmatorul cu eroarea de la lab1
+
+inca o chestie la 3:timp=noduri, distanta=valori pe noduri, viteze=val derivatelor in noduri =>>>>Polin Hermite
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+Nu ne ajuta functiile de la lab7
+renuntam la interpolare si lahrange si hermite
+
+nu folosim polin de gr1, folosim un polin de gr3 pe portiuni=Spline-uri
+
+Tema: 1,2,3 (de 4 ori)=>: spline complete, spline
+care reproduc derivatele de ordinul al doilea, spline naturale ¸si spline deBoor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
