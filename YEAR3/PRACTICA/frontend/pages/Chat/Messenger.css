@@ -1,0 +1,425 @@
+.messenger-container {
+    /* background-color: rgb(229, 219, 255); */
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-top-right-radius: 0% ;
+    border:0.5px solid rgba(192, 192, 193, 0.838);
+    right: 50px;
+    bottom: 650px;
+    height: 690px;
+    width: 490px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0; /* Set a lower z-index for the messenger container */
+
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(40px);
+
+    scrollbar-width: thin;
+    scrollbar-base-color: #828080;
+  scrollbar-color: #e0e0e0 #f1f1f1; /* thumb and track colors */
+
+    
+  }
+
+  .messenger-container::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+  }
+  
+  .messenger-container::-webkit-scrollbar-thumb {
+    background-color: #e0e0e0; /* Color of the thumb */
+    border-radius: 6px; /* Rounded corners for the thumb */
+  }
+  
+  .messenger-container::-webkit-scrollbar-thumb:hover {
+    background-color: #c0c0c0; /* Color of the thumb on hover */
+  }
+  
+  .messenger-container::-webkit-scrollbar-track {
+    background-color: #ffffff; /* Color of the track */
+  }
+
+
+  .upbar5{
+    /* overflow: hidden; */
+    background-color: rgb(255, 255, 255);
+    /* backdrop-filter: blur(40px); */
+    border-bottom: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9%;
+    z-index: 1; /* Set a higher z-index for the upbar */
+    color: rgb(0, 0, 0);
+  }
+
+  .worker_profile1{
+    background-color: rgb(255, 255, 255);
+    /* background-image: url('C:\Users\Sebastian\Desktop\practica ubb proiect\myplannerFrontEnd\taskmanager\src\pages\images\profile.png'); */
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 10%;
+    color: black;
+  }
+
+  .converser{
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 10px;
+    left: 55px;
+    font-weight: 500;
+  }
+
+  /* YourComponent.css */
+.settings2 {
+  background-color: white;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border: none; /* Optional: Remove border */
+  cursor: pointer; /* Optional: Add cursor pointer */
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}
+
+  
+  
+
+  .settings2:hover{
+    background-color:transparent;
+  }
+
+  .messbar{
+    overflow: hidden;
+    /* background-color: rgb(255, 255, 255); */
+    position: absolute;
+    border: 0.5px solid rgb(146, 145, 145);
+    border-top: 0.5px #828080;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 9%;
+    background: 
+    linear-gradient(135deg, rgba(26, 18, 39, 0.183), rgba(4, 23, 37, 0.539)), /* Dark overlay */
+    linear-gradient(45deg, #18161b75, #130d1e7b); /* Dark purple to dark blue gradient */
+    background-blur: blur(40px); /* Increase blur effect */
+    -webkit-backdrop-filter: blur(40px); /* Increase blur effect */
+    backdrop-filter: blur(40px); /* Increase blur effect */
+  }
+
+
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(40, 33, 53, 0.625); /* Background color of the dropdown */
+    min-width: 120px;
+    border-radius: 5px;
+    z-index: 1;
+    right: 0; /* Position it to the right of the button */
+    top: 100px; /* Adjust the distance from the button */
+    right: 20px;
+    overflow: auto;
+  }
+  
+  /* Styles for dropdown buttons */
+  .profile-button,
+  .Block {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #444; /* Add a border between items */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    text-align: left;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #444; /* Add a border between items */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Remove the border from the last button */
+  .logout-button {
+    border: none;
+  }
+  
+  /* Darken background on hover */
+  .profile-button:hover,
+  .Block:hover {
+    background-color: #2e2732;
+  }
+  
+  /* Show the dropdown menu when focusing on the button */
+  .settings2:focus + .dropdown-content {
+    display: block;
+    position: absolute;
+    z-index: 2; /* Set a higher z-index for the dropdown content */
+}
+
+/* Hide the dropdown content when it's not focused */
+.settings2:not(:focus) + .dropdown-content {
+    display: none;
+}
+  
+  .llabel {
+    color: red;
+    font-family: 'Segoe UI', 'Tahoma', Geneva, Verdana, sans-serif;
+    font-size: medium;
+  }
+
+  .blockuser{
+    color: red;
+
+  }
+  
+    
+
+  .alabel {
+    color: white;
+  }
+
+  .field5 {
+    position: absolute;
+  top: 12px;
+  left: 15px;
+  height: 35px;
+  width: 400px;
+  background-color: transparent; /* Make it transparent */
+  border: 0.5px solid rgb(139, 139, 139); /* Add a white border */
+  margin: 0;
+  padding: 0;
+  -webkit-text-fill-color: white;
+  transition: border-bottom 0.1s ease-in-out; /* Add a transition for the bottom border */
+  background: 
+    linear-gradient(135deg, rgba(26, 18, 39, 0.08), rgba(4, 23, 37, 0.164)), /* Dark overlay */
+    linear-gradient(45deg, #1e1b2128, #130d1e39); /* Dark purple to dark blue gradient */
+  background-blur: blur(40px); /* Increase blur effect */
+  -webkit-backdrop-filter: blur(40px); /* Increase blur effect */
+  backdrop-filter: blur(40px); /* Increase blur effect */
+  }
+
+  .username_worker,
+.availability {
+  color: rgb(0, 0, 0);
+}
+
+.field5:focus,
+.field5:active {
+    border-bottom: 2px solid #000; /* Show the bottom border on focus or click */
+    outline: none; /* Remove the default focus outline */
+}
+
+/* Move the placeholder to the right by adding padding-left */
+.field7::placeholder {
+    padding-left: 10px; /* Adjust the value as needed */
+    color:#000000;
+}
+
+
+.send2 {
+    position: absolute;
+    width: 40px;
+    height: 35px;
+    border-radius: 40%;
+    right: 15px;
+    top: 12px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px; /* Adjust the font size as needed */
+    color: rgb(0, 0, 0); /* Text color */
+    content: ' ➤';
+}
+
+.send::before {
+    content: ' ➤'; /* Unicode for an icon, adjust as needed */
+    font-family: 'Font Awesome'; /* Use an appropriate icon font */
+    font-weight: bold;
+    align-items: center;
+}
+
+.send::content{
+  content: ' ➤';
+    align-items: center;
+    position: absolute;
+    left: 2px;
+}
+
+.send:hover {
+    cursor: pointer;
+    background-color: #0072cb; /* Change color on hover */
+}
+
+.setic{
+  color: rgb(0, 0, 0);
+}
+
+.user-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* margin-right: 10px; */
+  position: absolute;
+  left: 40px;
+  top: 10px;
+}
+
+.user-status.online {
+  background-color: green;
+}
+
+.user-status.offline {
+  background-color: red;
+}
+
+.availability{
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 30px;
+  left: 55px;
+  font-size: small;
+  font-family: 'Segoe UI', 'Tahoma', Geneva, Verdana, sans-serif;
+  font-weight: 450;
+
+}
+  
+
+.messenger-container .messbar {
+  border-bottom: 0.5px solid white; /* Add a white border */
+}
+
+
+.avl{
+  color: rgb(0, 0, 0);
+  position: absolute;
+  top: 30px;
+  left: 55px;
+  font-size: small;
+  font-family: 'Segoe UI', 'Tahoma', Geneva, Verdana, sans-serif;
+  font-weight: 450;
+}
+
+.cnv{
+  color: rgb(0, 0, 0);
+    position: absolute;
+    top: 10px;
+    left: 55px;
+    font-weight: 500;
+}
+
+
+.wfl{
+
+  background-color: rgba(128, 126, 126, 0.291);
+    /* background-image: url('C:\Users\Sebastian\Desktop\practica ubb proiect\myplannerFrontEnd\taskmanager\src\pages\images\profile.png'); */
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    border-radius: 20%;
+    color: black;
+}
+
+.uuu2{
+  color: rgb(0, 0, 0);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+.messbar2{
+
+  overflow: hidden;
+    /* background-color: rgb(255, 255, 255); */
+    position: absolute;
+    /* border: 0.5px solid rgb(84, 84, 84); */
+    border-top: 1px #828080;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 9%;
+    background-color: white;
+}
+
+.bla {
+  padding: 10px 10px 10px 20px;
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  height: 35px;
+  width: 405px;
+  background-color: transparent;
+  margin: 0;
+  -webkit-text-fill-color: white;
+  transition: border-bottom 0.1s ease-in-out;
+  background-color: rgba(189, 189, 189, 0.543);
+  backdrop-filter: blur(40px);
+  color: rgb(0, 0, 0);
+  border: none;
+}
+
+.bla::placeholder {
+  color: black; /* Set the placeholder text color to black */
+}
+
+
+.gunoiinfect{
+  padding: 10px 10px 10px 20px;
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  height: 35px;
+  width: 405px;
+  background-color: transparent;
+  margin: 0;
+  -webkit-text-fill-color: rgb(0, 0, 0);
+  transition: border-bottom 0.1s ease-in-out;
+  background-color: rgba(210, 209, 209, 0.374);
+  backdrop-filter: blur(40px);
+  color: rgb(0, 0, 0);
+  border: none;
+}
+
+
+.gunoiinfect::placeholder{
+  color: rgba(0, 0, 0, 0.598);
+}
+
+.gunoiinfect::placeholder,
+.gunoiinfect:-ms-input-placeholder, /* Microsoft Edge */
+.gunoiinfect::-ms-input-placeholder, /* Microsoft Edge */
+.gunoiinfect:-moz-placeholder, /* Mozilla Firefox 4 to 18 */
+.gunoiinfect::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: rgba(31, 31, 31, 0.566); /* Set the placeholder text color to black */
+}
+

@@ -1,0 +1,131 @@
+/* Add these styles to your CSS file */
+.signup-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://wallpapershome.com/images/wallpapers/abstract-3840x2160-colorful-8k-21288.jpg');
+  }
+  
+  .signup-form {
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(105, 104, 104, 0.3);
+    text-align: center;
+    min-width: 400px;
+    min-height: 650px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+    position: absolute;
+  }
+  
+  .signup-form h2 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    margin-top: 10px;
+  }
+  
+  .label-det {
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .inus2 {
+    position: absolute;
+    top: 110px;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: white;
+  }
+  
+  .signupbtn {
+    width: 90%;
+    padding: 10px;
+    background-color: #5e3edf;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+  }
+  
+  .signupbtn:hover {
+    background-color: #007bff;
+  }
+  
+  .signup-link {
+    position: absolute;
+    color: white;
+    left: 65px;
+    top: 410px;
+  }
+
+
+
+  .email2{
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: white;
+    position: absolute;
+    top: 190px;
+    left: 20px;
+  }
+
+  .pass2{
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: white;
+    position: absolute;
+    bottom: 130px;
+    left: 20px;
+  }
+  .det1{
+    position: absolute;
+    color: white;
+    top: 85px;
+
+  }
+
+  .det4{
+    position: absolute;
+    color: white;
+    top: 165px;
+  }
+
+  .det3{
+    position: absolute;
+    color: white;
+    bottom: 175px;
+  }
+  

@@ -1,0 +1,42 @@
+/* UsersList.css */
+
+.user-list {
+  position: absolute;
+  top: 120px;
+  right: 5px;
+  overflow-y: auto;
+  /* max-height: 100%; Make sure the list doesn't exceed the container's height */
+  padding-right: 10px; /* Add padding for the scrollbar */
+  max-height: 490px;
+  width: 96%;
+  background-color: transparent;
+  padding-bottom: 25px;
+}
+
+/* Add space between users */
+.user-item {
+  margin-bottom: 5px; /* Add 5px margin at the bottom of each user item */
+}
+
+/* Add any additional styling for UsersList as needed */
+
+/* Style the scrollbar track */
+.user-list::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+.user-list::-webkit-scrollbar-thumb {
+  background-color: #888; /* Change the color of the scrollbar thumb */
+  border-radius: 5px; /* Add rounded corners to the thumb */
+}
+
+/* Style the scrollbar track when hovered */
+.user-list::-webkit-scrollbar-track:hover {
+  background-color: rgba(19, 17, 51, 0.2); /* Change the color on hover */
+}
+
+/* Style the scrollbar thumb when hovered */
+.user-list::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Change the color of the thumb on hover */
+}

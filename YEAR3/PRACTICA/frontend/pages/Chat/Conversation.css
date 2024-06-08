@@ -1,0 +1,50 @@
+/* Conversation.css */
+
+.conversation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  overflow-y: auto;
+  /* background-color: transparent; Make the background transparent */
+  /* background: transparent; */
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(40px);
+  border-radius: 10px;
+  position: absolute;
+  top: 70px;
+  overflow: auto;
+  height: 550px;
+  width: 480px;
+  right: 5px;
+  left: 5px;
+
+  /* Apply a gradient background for super faded margins */
+  
+}
+
+
+  
+
+  .conversation::-webkit-scrollbar {
+    color: rgb(255, 255, 255);
+    width: 10px; /* Set the width of the scrollbar */
+  }
+  
+  /* Style the scrollbar thumb (the draggable part) */
+  .conversation::-webkit-scrollbar-thumb {
+    background-color: rgb(168, 168, 168);/* Change the color of the scrollbar thumb */
+    border-radius: 5px; /* Add rounded corners to the thumb */
+  }
+  
+  /* Style the scrollbar track when hovered */
+  .conversation::-webkit-scrollbar-track:hover {
+    background-color: rgb(255, 255, 255); /* Change the color on hover */
+  }
+  
+  /* Style the scrollbar thumb when hovered */
+  .conversation::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(168, 168, 168); /* Change the color of the thumb on hover */
+  }
+  /* Add any additional styling you need for the Conversation component */
+  

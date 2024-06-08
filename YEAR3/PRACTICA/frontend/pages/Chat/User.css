@@ -1,0 +1,81 @@
+/* User.css */
+
+.user-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  width: 100%;
+  border: none;
+  /* border-bottom: 1px solid #5b5959a6; Add border to user items */
+
+  
+}
+  
+  .user-item:hover {
+    background-color: rgba(82, 57, 139, 0.239);
+    -webkit-backdrop-filter: blur(60px); /* Increase blur effect */
+    backdrop-filter: blur(60px); /* Increase blur effect */
+    border-radius: 8px; /*Add border radius for rounded corners*/
+    color: #959595;
+  }
+  
+  .user-pic2 {
+    width: 30px;
+    height: 30px;
+    border-radius: 20%;
+    margin-right: 10px;
+    background: 
+    linear-gradient(135deg, #2e304821, #2e304821), /* Dark overlay */
+    linear-gradient(45deg, #2e304821, #2e304821); /* Dark purple to dark blue gradient */
+  background-blur: blur(40px); /* Increase blur effect */
+  -webkit-backdrop-filter: blur(40px); /* Increase blur effect */
+  backdrop-filter: blur(40px); /* Increase blur effect */
+  }
+  
+  .user-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* margin-right: 10px; */
+    position: absolute;
+    left: 40px;
+    top: 10px;
+  }
+  
+  .user-status.online {
+    background-color: green;
+  }
+  
+  .user-status.offline {
+    background-color: red;
+  }
+  
+  .user-info {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .user-username {
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+  }
+  
+  .user-last-message {
+    color: #2e2d2ddb;
+    font-size: 12px;
+  }
+  
+
+  .uuu2{
+    position: absolute;
+    bottom: 2px;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    color: rgb(0, 0, 0);
+    left: 5px;
+  }
+  

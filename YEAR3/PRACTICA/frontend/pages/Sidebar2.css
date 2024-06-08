@@ -1,0 +1,75 @@
+/* Sidebar.css */
+
+.sidebar-container2 {
+  background-color: white;
+border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+    position: relative;
+    right: 420px;
+    top: 395px;
+    height: 690px;
+    width: 370px;
+    overflow: hidden; /* Add this to hide overflowing content */
+    border:0.5px solid rgba(183, 183, 183, 0.838);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .profile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9%;
+    background-color: rgb(255, 255, 255);
+    font-weight: 500;
+    /* overflow: hidden; */
+    border-top-left-radius: 15px; /* Add rounded corners to the top left and right of the profile */
+    border-top-right-radius: 15px;
+  }
+  
+  .sbar {
+    position: absolute;
+    top: 9%;
+    left: 18px;
+    border: none;
+    /* border-bottom: 2px solid #aeacac; Add a white bottom border */
+    background-color: rgba(226, 226, 226, 0.77);
+    border-radius: 10px;
+    color: rgba(0, 0, 0, 0.525);
+    width: 90%;
+  }
+
+  .sbar::placeholder{
+    color: rgb(0, 0, 0);
+  }
+  
+  /* Add specific styling for elements within the Sidebar component if needed */
+  
+  
+  .profile_pic{
+    background-color: rgba(226, 226, 226, 0.77);
+    background-image: url('https://static.thenounproject.com/png/3201587-200.png');
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 50%;
+  }
+  
+  .username{
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 15px;
+    left: 55px;
+  }
+  
+  .available{
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 28px;
+    right: 120px;
+  }

@@ -1,0 +1,159 @@
+.sidebar-container {
+
+  color: white;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+  position: relative;
+  right: 419px;
+  top: 40px;
+  height: 690px;
+  width: 370px;
+  overflow: hidden;
+  border-top-right-radius: 0%;
+  border-top-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  border:0.5px solid rgba(192, 192, 193, 0.838);
+}
+
+.profile2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 9%;
+  background-color: white;
+  font-weight: 500;
+  border-radius: 0;
+  /* border-top-left-radius: 15px; */
+}
+
+.sbar2 {
+  position: absolute;
+  width: 90%;
+  height: 35px;
+  top: 9%;
+  left: 20px;
+  border: none;
+  border-radius: 5px;
+  /* border: 0.5px solid rgb(119, 116, 116); Add a white bottom border */
+  background-color: rgba(210, 209, 209, 0.374);
+  backdrop-filter: blur(40px); /* Increase blur effect */
+  color: rgb(0, 0, 0);
+}
+
+.sbar2::placeholder {
+  padding-left: 10px; /* Adjust the value as needed */
+  color:#000000a1;
+}
+
+/* Add specific styling for elements within the Sidebar component if needed */
+
+.profile_pic2 {
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  border-radius: 20%;
+}
+
+.uuu{
+  color: rgb(0, 0, 0);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.username2 {
+  color: rgb(0, 0, 0);
+  position: absolute;
+  top: 15px;
+  left: 55px;
+}
+
+.available {
+  color: rgb(0, 0, 0);
+  position: absolute;
+  top: 28px;
+  right: 120px;
+}
+
+.searc{
+  color: rgb(61, 41, 81);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.searc2{
+  color: rgb(58, 39, 77);
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 23px;
+  right: 50px;
+}
+
+
+.support{
+  border:0.5px solid rgba(192, 192, 193, 0.838);
+  border-right: 0;
+  position: absolute;
+  bottom: 0;
+  height: 75px;
+  width: 100%;
+  left: 0;
+  color: white;
+}
+
+
+.customize{
+  background-color: rgba(189, 189, 189, 0.543);
+  backdrop-filter: blur(40px);
+  width: 155px;
+  height: 40px;
+  position: absolute;
+  left: 20px;
+  top: 17px;
+  font-size: small;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.806);
+  /* border: 1px solid rgba(238, 237, 239, 0.65); */
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+
+.reachout{
+  background-color: rgba(103, 62, 142, 0.698);
+  width: 155px;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  top: 17px;
+  font-size: small;
+  text-align: center;
+  color: rgb(58, 22, 83);
+  /* border: 1px solid rgb(88, 48, 125); */
+  border-radius: 5px;
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.reachout:hover, 
+.customize:hover{
+  background-color: rgba(255, 255, 255, 0.441);
+  opacity: 1;
+}
